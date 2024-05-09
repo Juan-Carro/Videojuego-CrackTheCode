@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+      <title>Proyecto Titor</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/estilos.css">
+      <script src="javascript/index.js" defer></script>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!-- LATO FONT -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> <!-- MONTSERRAT FONT -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  </head>
+  
+  <body>
+  <div id="homepage">
+    <!-- NAVBAR SECTIION -->
+    <div class="w3-top">
+
+      <!-- Navbar on medium - large screens -->
+      <div class="w3-bar" id="myNavbar">
+        <a class="w3-padding-24 w3-bar-item w3-button w3-hover-white w3-hide-medium w3-hide-large w3-right" onclick="toggleFunction();" title="Toggle Navigation Menu">
+          <i class="fa fa-bars" onclick="w3_open();"></i>
+        </a>
+        <a href="#home" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> INICIO</a>
+        <a href="http://3.219.153.3:8080/admin.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-address-card"></i> ADMIN</a>
+        <a href="http://3.219.153.3:8080/leaderboard.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-file-code-o"></i> VER PUNTUACIONES</a>
+        <a href="https://www.crackthecode.la" class="w3-padding-24 w3-bar-item w3-button w3-hide-small w3-right"><i class="fa fa-th"></i> CRACK THE CODE</a>
+      </div>
+
+      <!-- Navbar on small screeens -->
+      <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center w3-black" style="display: none" id="smallNavbar">
+        <span style="font-size: 1.5rem;">
+          <button class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-remove"></i></button>
+          <a href="#home" class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-home"></i>  INICIO</a>
+          <a href="http://3.219.153.3:8080/admin.html" class="w3-padding-16 w3-bar-item w3-button"><i class="fa fa-address-card"></i>  ADMIN</a>
+          <a href="http://3.219.153.3:8080/leaderboard.html" class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-file-code-o"></i>  VER PUNTUACIONES</a>
+          <a href="https://www.crackthecode.la" class="w3-bar-item w3-button"><i class="fa fa-th"></i>  CRACK THE CODE</a>
+        </span>
+      </nav>
+
+    </div>
+  
+    <!-- HERO IMAGE HEADER WITH TEXT -->
+    <div class="hero" id="home">
+      <div class="hero-content">
+        <h1>¡Descubre el pasado para asegurar el futuro!</h1>
+        <p>Únete a nuestra misión para detener la amenaza de H.A.R.B. y cambiar el curso de la historia mientras aprendes sobre programación</p>
+        <a href="#login" class="cyberpunk">¡Regístrate!</a>
+      </div>
+    </div>
+    
+    <!-- CHARACTERS CARD SECTION -->
+    <div class="w3-row">
+      <div class="characters w3-col l5" id="kusanagiL"></div>
+      <div class="characters charText w3-col l7" id="kusanagiR">
+        <div class="w3-panel w3-center w3-auto">
+          <h2>¡Salta a la acción con Kusanagi, la guerrera del doble salto!</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row w3-hide-small w3-hide-medium">
+      <div class="characters pillarL charText w3-col l7">
+        <div class="w3-panel w3-center w3-auto">
+          <h2>¡Corre hacia la victoria junto a Pillar, el maestro de la velocidad!</h2>
+        </div>
+      </div>
+      <div class="characters pillarR w3-col l5"></div>
+    </div>
+
+    <!-- PILAR ON SMALL AND MEDIUM SCREENS -->
+    <div class="w3-row w3-hide-large">
+      <div class="characters pillarR w3-col l5" id="c"></div>
+      <div class="characters pillarL charText w3-col l7">
+        <div class="w3-panel w3-center w3-auto">
+          <h2>¡Corre hacia la victoria junto a Pillar, el maestro de la velocidad!</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="characters w3-col l5" id="copL"></div>
+      <div class="characters charText w3-col l7" id="copR">
+        <div class="w3-panel w3-center w3-auto">
+          <h2>¡Prepárate para la batalla definitiva con Cop, el guerrero más resistente!</h2>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- LOGIN / REGISTER SECTION -->
+    <div class="log-reg w3-row" id="login">
+
+      <!-- Register -->
+      <div class="switch w3-panel w3-col l5" id="loginMsg">
+        <div class="w3-auto w3-panel">
+          <h2>¿Ya tienes una cuenta?</h2>
+            <button class="cyberpunk" onclick="toGame();">¡Juega Ya!</button>
+        </div>
+      </div>
+
+      <div class="myform w3-auto w3-panel w3-col l7" id="registerForm">
+        <div class="myformdiv w3-round-xlarge w3-border">
+          <h2>¡Regístrate con nosotros!</h2>
+          <p>Datos del Tutor</p>
+          <div class="w3-col m6 l6">
+            <input class="w3-input w3-round-xlarge" type="text" placeholder="Nombre" id="nameTField" required>
+            <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Paterno" id="lastTField" required>
+          </div>
+          <div class="w3-col m6 l6">
+            <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Materno" id="lastTField2" required>
+            <input class="w3-input w3-round-xlarge" type="email" placeholder="Correo" id="emailField" required>
+            <input class="w3-input w3-round-xlarge" type="tel" placeholder="Teléfono (F. Internacional)" pattern="^\+?\d{1,3} ?\d{3,4} ?\d{6,7}$" id="phoneField" required>
+          </div>
+
+          <p>Datos del alumno</p>
+          <div class="w3-col m6 l6">
+            <input class="w3-input w3-round-xlarge" type="text" placeholder="Nombre" id="nameEField" required>
+            <input class="w3-input w3-input w3-round-xlarge" type="text" placeholder="Gamertag" id="gamertagField" required>
+            <select class="w3-select w3-round-xlarge" id="ctryField" required>
+              <option value="" disabled selected>Selecciona tu país</option>
+              <optgroup label="Norteamérica">
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Islas menores alejadas de Estados Unidos">Islas menores alejadas de Estados Unidos</option>
+                <option value="Canadá">Canadá</option>
+                <option value="México">México</option>
+                <option value="Anguila">Anguila</option>
+                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                <option value="Aruba">Aruba</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Belice">Belice</option>
+                <option value="Bermudas">Bermudas</option>
+                <option value="Islas Vírgenes Británicas">Islas Vírgenes Británicas</option>
+                <option value="Islas Caimán">Islas Caimán</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Dominica">Dominica</option>
+                <option value="República Dominicana">República Dominicana</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Granada">Granada</option>
+                <option value="Guadalupe">Guadalupe</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Haití">Haití</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Martinica">Martinica</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Antillas Neerlandesas">Antillas Neerlandesas</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panamá">Panamá</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="San Cristóbal y Nieves">San Cristóbal y Nieves</option>
+                <option value="Santa Lucía">Santa Lucía</option>
+                <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                <option value="Islas Turcas y Caicos">Islas Turcas y Caicos</option>
+                <option value="Islas Vírgenes de EE. UU.">Islas Vírgenes de EE. UU.</option>
+            </optgroup>
+            <optgroup label="Sudamérica">
+                <option value="Argentina">Argentina</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Islas Malvinas">Islas Malvinas</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Perú">Perú</option>
+                <option value="Surinam">Surinam</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+            </optgroup>
+            </select>
+          </div>
+          <div class="w3-col m6 l6">
+            <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Paterno" id="lastEField" required>
+            <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Materno" id="lastEField2" required>
+            <input class="w3-input w3-round-xlarge" type="password" placeholder="Contraseña" id="pwdField"required>
+            <input class="w3-input w3-round-xlarge" type="number" placeholder="Año de nacimiento" id="bdateField"required>
+          </div>
+          <div class="w3-panel">
+            <button class="w3-btn w3-round-xxlarge w3-section" onclick="sendInfo();">REGISTRARSE</button>
+          </div>
+          <div class="w3-panel" id="endRegister" style="display: none;">
+            <p class="w3-center" id="regResult"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer w3-center w3-black w3-padding-24">
+      <p>
+        Desarrollado con 
+        <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-yellow">w3.css</a>
+        <a href="https://nodejs.org/en" title="NodeJS" target="_blank" class="w3-hover-text-yellow">Node.js</a>
+        | 
+        <a href="https://lenguajehtml.com/html/" title="HTML5" target="_blank" class="w3-hover-text-yellow">HTML5</a> válido
+        |
+        Íconos de <a href="https://fontawesome.com" title="Fontawesome" target="_blank" class="w3-hover-text-yellow">Font Awesome</a>
+      </p>
+    </footer>
+
+  </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Leaderboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="javascript/index.js" defer></script>
+    <script src="javascript/leaderboard.js" defer></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!-- LATO FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> <!-- MONTSERRAT FONT -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  </head>
+  
+  <body>
+    
+    <div class="w3-top">
+      <!-- Navbar on medium - large screens -->
+      <div class="w3-bar" id="myNavbar">
+        <a class="w3-padding-24 w3-bar-item w3-button w3-hover-white w3-hide-medium w3-hide-large w3-right" onclick="toggleFunction();" title="Toggle Navigation Menu">
+        <i class="fa fa-bars" onclick="w3_open();"></i>
+        </a>
+        <a href="http://3.219.153.3:8080/index.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> INICIO</a>
+        <a href="http://3.219.153.3:8080/admin.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-address-card"></i> ADMIN</a>
+        <a href="http://3.219.153.3:8080/leaderboard.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-file-code-o"></i> VER PUNTUACIONES</a>
+        <a href="https://www.crackthecode.la" class="w3-padding-24 w3-bar-item w3-button w3-hide-small w3-right"><i class="fa fa-th"></i> CRACK THE CODE</a>
+      </div>
+
+      <!-- Navbar on small screeens -->
+      <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center w3-black" style="display: none" id="smallNavbar">
+        <span style="font-size: 1.5rem;">
+          <button class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-remove"></i></button>
+          <a href="http://3.219.153.3:8080/index.html" class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-home"></i>  INICIO</a>
+          <a href="http://3.219.153.3:8080/admin.html" class="w3-padding-16 w3-bar-item w3-button"><i class="fa fa-address-card"></i>  ADMIN</a>
+          <a href="http://3.219.153.3:8080/leaderboard.html" class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-file-code-o"></i>  VER PUNTUACIONES</a>
+          <a href="https://www.crackthecode.la" class="w3-bar-item w3-button"><i class="fa fa-th"></i>  CRACK THE CODE</a>
+        </span>
+      </nav>
+    </div>
+    
+    
+    <div class="leaderboardBG w3-container">
+      
+      <div class="myleaderboard w3-panel w3-center">
+        <h1>¡Los mejores del mundo!</h1>  
+      </div>
+      
+      <div class="myleaderboard w3-panel w3-responsive w3-animate-zoom">
+        <div class="w3-container">
+          <table class="w3-table w3-auto w3-hoverable w3-white w3-centered" id="leaderboard">
+            <tr class="w3-blue-grey w3-round-xlarge">
+              <th style="padding: 8px;">Lugar</th>
+              <th style="padding: 8px;">Gamertag</th>
+              <th style="padding: 8px;">Puntos</th>
+              <th style="padding: 8px;">Nivel</th>
+            </tr>
+            <tr></tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="w3-panel w3-center">
+        <button class="w3-yellow w3-btn w3-round" onclick="changePage(-1);">Anterior</button>
+        <button class="w3-yellow w3-btn w3-round" onclick="changePage(1);">Siguiente</button>
+      </div>
+
+      
+      <div class="w3-container" style="display: none;">
+        <canvas id="leaderboardChart"></canvas>
+      </div>
+  
+    </div>
+    
+    <footer class="footer w3-center w3-black w3-padding-24">
+      <p>
+        Desarrollado con 
+        <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-yellow">w3.css</a>
+        <a href="https://nodejs.org/en" title="NodeJS" target="_blank" class="w3-hover-text-yellow">Node.js</a>
+        | 
+        <a href="https://lenguajehtml.com/html/" title="HTML5" target="_blank" class="w3-hover-text-yellow">HTML5</a> válido
+        |
+        Íconos de <a href="https://fontawesome.com" title="Fontawesome" target="_blank" class="w3-hover-text-yellow">Font Awesome</a>
+      </p>
+    </footer>
+    
+    
+    
+    
+    
+  </body>
+  
+</html>

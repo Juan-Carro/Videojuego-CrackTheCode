@@ -1,0 +1,44 @@
+sqlcmd -S localhost -U sa -P 'Ocamon67@SQL'                                    
+--------------------------------------------------------------------------------
+sqlcmd -S localhost -i 1_SQL_DDL_Reto.sql -U sa -P 'Ocamon67@SQL'               
+sqlcmd -S localhost -i 2_SQL_Triggers_Reto.sql -U sa -P 'Ocamon67@SQL'          
+sqlcmd -S localhost -i 3_SQL_StoredProcedures_Reto.sql -U sa -P 'Ocamon67@SQL'  
+sqlcmd -S localhost -i 4_SQL_DML_Reto.sql -U sa -P 'Ocamon67@SQL'               
+--------------------------------------------------------------------------------
+
+
+----------- NOMBRES DE LAS TABLAS -------------
+                                              *
+*  Pais, Tutor, Usuario, Niveles, Puntuacion  *
+                                              *
+-----------------------------------------------
+
+
+-------------------
+   USE RetoBD;   
+-------------------
+
+------------------------ CHECAR INSERTADO -------------------------------
+                                                                        *
+SELECT * FROM Usuario WHERE IDUsuario = IDENT_CURRENT('Usuario');       
+                                                                        *
+SELECT * FROM Tutor WHERE IDTutor = IDENT_CURRENT('Tutor');             
+                                                                        *
+SELECT * FROM Pais WHERE IDPais = IDENT_CURRENT('Pais');                
+                                                                        *
+SELECT * FROM Puntuacion WHERE IDPuntos = IDENT_CURRENT('Puntuacion');  
+                                                                        *
+-------------------------------------------------------------------------
+
+
+--------------------- BORRADO Y ACTUALIZADO -----------------------
+                                                                  *
+SELECT elementoborrado FROM tabla;                                
+                                                                  *
+SELECT * FROM tablaactualizada WHERE columna = datoactualizado;   
+                                                                  *
+-------------------------------------------------------------------
+
+
+
+

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Admin Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="javascript/index.js" defer></script>
+    <script src="javascript/admin.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!-- LATO FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> <!-- MONTSERRAT FONT -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  </head>
+  
+  <body>
+    
+    <div class="w3-top">
+      <!-- Navbar on medium - large screens -->
+      <div class="w3-bar" id="myNavbar">
+        <a class="w3-padding-24 w3-bar-item w3-button w3-hover-white w3-hide-medium w3-hide-large w3-right" onclick="toggleFunction();" title="Toggle Navigation Menu">
+        <i class="fa fa-bars" onclick="w3_open();"></i>
+        </a>
+        <a href="http://3.219.153.3:8080/index.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> INICIO</a>
+        <a href="http://3.219.153.3:8080/admin.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-address-card"></i> ADMIN</a>
+        <a href="http://3.219.153.3:8080/leaderboard.html" class="w3-padding-24 w3-bar-item w3-button w3-hide-small"><i class="fa fa-file-code-o"></i> VER PUNTUACIONES</a>
+        <a href="https://www.crackthecode.la" class="w3-padding-24 w3-bar-item w3-button w3-hide-small w3-right"><i class="fa fa-th"></i> CRACK THE CODE</a>
+      </div>
+
+      <!-- Navbar on small screeens -->
+      <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center w3-black" style="display: none" id="smallNavbar">
+        <span style="font-size: 1.5rem;">
+          <button class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-remove"></i></button>
+          <a href="http://3.219.153.3:8080/index.html" class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-home"></i>  INICIO</a>
+          <a href="http://3.219.153.3:8080/admin.html" class="w3-padding-16 w3-bar-item w3-button"><i class="fa fa-address-card"></i>  ADMIN</a>
+          <a href="http://3.219.153.3:8080/leaderboard.html" class="w3-padding-16 w3-bar-item w3-button" onclick="toggleFunction(); w3_close();"><i class="fa fa-file-code-o"></i>  VER PUNTUACIONES</a>
+          <a href="https://www.crackthecode.la" class="w3-bar-item w3-button"><i class="fa fa-th"></i>  CRACK THE CODE</a>
+        </span>
+      </nav>
+    </div>
+    
+    
+    <div class="admin w3-container" id="adminLogIn" style="display: block;">
+      <div class="myform w3-content w3-auto w3-panel w3-padding-64">
+        <div class="myformdiv w3-center w3-round-xlarge w3-border w3-animate-zoom">
+          <h2>Ingresa tu usuario</h2><br>
+          <div class="w3-center">
+            <input class="w3-input w3-round-xlarge" type="text" placeholder="Usuario" id="adminRegField"required>
+            <input class="w3-input w3-round-xlarge" type="password" placeholder="Contraseña" id="adminPwdField" required>
+          </div>
+          <div class="w3-panel">
+            <button class="w3-btn w3-round-xxlarge w3-section" onclick="adminLogin();">INICIAR SESIÓN</button>
+          </div>
+          <div class="w3-panel w3-center" id="adminEndLogin" style="display: none;">
+            <h4 id="adminLoginResult"></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="adminSection" style="display: none;">
+      
+      <div class="adminHero"></div>
+    
+      <div class="adminform myform w3-container w3-center w3-dark-grey">
+        
+        <h2>Ingresar un nuevo administrador</h2>
+        
+        <div class="myformdiv w3-border w3-panel w3-round-xlarge">
+          <div class="w3-panel w3-row-padding">
+            <div class="w3-third w3-container">
+              <input class="w3-center w3-input w3-round" type="text" placeholder="Nombre" id="nameAField" required>
+            </div>
+            <div class="w3-third">
+              <input class="w3-center w3-input w3-round" type="text" placeholder="Apellido Paterno" id="lastpAField" required>
+            </div>
+            <div class="w3-third">
+              <input class="w3-center w3-input w3-round" type="text" placeholder="Apellido Materno" id="lastmAField" required>
+            </div>         
+          </div>
+          
+          <div class="w3-panel w3-row-padding">
+            <div class="w3-third w3-container">
+              <input class="w3-center w3-input w3-round" type="number" placeholder="Año de nacimiento" id="bdateAField" required>
+            </div>
+            <div class="w3-third">
+              <input class="w3-center w3-input w3-round" type="password" placeholder="Contraseña" id="pwdAField" required>
+            </div>
+            <div class="w3-third">
+              <input class="w3-center w3-input w3-round" type="text" placeholder="Nombre de Usuario" id="userAField" required>
+            </div>
+          </div>
+          
+          <div class="w3-panel">
+            <button class="w3-btn w3-round-xxlarge w3-section" onclick="adminRegister();">REGISTRAR</button>
+          </div>
+          
+          <div class="w3-panel w3-center" id="endARegister" style="display: none;">
+            <h4 id="regAResult"></h4>
+          </div>          
+          
+        </div>
+      </div>
+      
+      
+      <div class="dataManagement w3-container w3-row-padding w3-center w3-grey">
+        
+        <h1>Manipulación de datos</h1>
+        
+        
+        <div class="w3-panel">
+          <div class="w3-third w3-round w3-btn w3-yellow">
+            <p onclick="toggleP();">Países</p>
+          </div>
+          <div class="w3-third w3-round w3-btn w3-deep-purple">
+            <p onclick="toggleU();">Usuarios</p>
+          </div>
+          <div class="w3-third w3-round w3-btn w3-orange">
+            <p onclick="toggleT();">Tutores</p>
+          </div>          
+        </div>
+        
+
+        <div class="w3-panel w3-row-padding" style="display: none;" id="ctryPanel">
+          <div class="myleaderboard w3-panel w3-responsive w3-animate-zoom">
+            <div class="w3-container">
+              <table class="w3-table w3-card-4 w3-auto w3-hoverable w3-white w3-centered" id="countries">
+                <tr class="w3-blue-grey w3-round-xlarge">
+                  <th style="padding: 8px;">ID del País</th>
+                  <th style="padding: 8px;">Nombre</th>
+                </tr>
+                <tr></tr>
+              </table>
+            </div>
+          </div>
+          <div class="myform w3-half">
+            <div class="adminform myformdiv w3-border w3-round-large">
+              <h2>Actualizar País</h2><br>
+              <div class="w3-center">
+                <input class="w3-input w3-round-xlarge" type="number" placeholder="ID País" id="ctryIdField"required>
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Nombre País" id="ctryNameField" required>
+              </div>
+              <div class="w3-panel">
+                <button class="w3-btn w3-round-xxlarge w3-section w3-text-white" onclick="updateCtry();">Actualizar</button>
+              </div>              
+            </div>
+          </div>
+          <div class="myform w3-half">
+            <div class="adminform myformdiv w3-border w3-round-xlarge">
+              <h2>Borrar país</h2><br>
+              <div class="w3-center">
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Nombre País" id="ctryDelField"required>
+              </div>
+              <div class="w3-panel">
+                <button class="w3-btn w3-round-xxlarge w3-section w3-text-white" onclick="deleteCtry();">Borrar</button>
+              </div>               
+            </div>
+            <div class="myformdiv w3-border">
+              <p style="text-align: center;" id="ctryResult"></p>
+            </div>            
+          </div>          
+        </div>
+        
+        
+        <div class="w3-panel" style="display: none;" id="userPanel">
+          <div class="myleaderboard w3-panel w3-responsive w3-animate-zoom">
+            <div class="w3-container">
+              <table class="w3-table w3-card-4 w3-auto w3-hoverable w3-white w3-centered" id="users">
+                <tr class="w3-blue-grey w3-round-xlarge">
+                  <th style="padding: 8px;">ID Usuario</th>
+                  <th style="padding: 8px;">ID Pais</th>
+                  <th style="padding: 8px;">ID Tutor</th>
+                  <th style="padding: 8px;">Nombre</th>
+                  <th style="padding: 8px;">Apellido Paterno</th>
+                  <th style="padding: 8px;">Apellido Materno</th>
+                  <th style="padding: 8px;">Año nacimiento</th>
+                  <th style="padding: 8px;">Gamertag</th>
+                </tr>
+                <tr></tr>
+              </table>
+            </div>
+          </div>
+          <div class="myform w3-half">
+            <div class="adminform myformdiv w3-border w3-round-large">
+              <h2>Actualizar Usuario</h2><br>
+              <div class="w3-center w3-col m6 l6">
+                <input class="w3-input w3-round-xlarge" type="number" placeholder="ID Usuario" id="userIdField"required>
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Nombre Usuario" id="userNameField" required>
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Paterno" id="userPField"required>
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Materno" id="userMField" required>                
+              </div>
+              <div class="w3-center w3-col m6 l6">
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Pais" id="userCField"required>
+                <input class="w3-input w3-round-xlarge" type="email" placeholder="Tutor Email" id="userMailField" required>
+                <input class="w3-input w3-round-xlarge" type="number" placeholder="Año nacimiento" id="userYField"required>
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Gamertag" id="userGField" required>                
+              </div>              
+              <div class="w3-panel">
+                <button class="w3-btn w3-round-xxlarge w3-section w3-text-white" onclick="updateUser();">Actualizar</button>
+              </div>              
+            </div>
+          </div>
+          <div class="myform w3-half">
+            <div class="adminform myformdiv w3-border w3-round-xlarge">
+              <h2>Borrar Usuario</h2><br>
+              <div class="w3-center">
+                <input class="w3-input w3-round-xlarge" type="email" placeholder="Gamertag" id="userDelField"required>
+              </div>
+              <div class="w3-panel">
+                <button class="w3-btn w3-round-xxlarge w3-section w3-text-white" onclick="deleteUser();">Borrar</button>
+              </div>               
+            </div>
+            <div class="myformdiv w3-border">
+              <p style="text-align: center;" id="userResult"></p>
+            </div>
+          </div>           
+        </div>        
+        
+        <div class="w3-panel w3-row-padding" style="display: none;" id="tutorPanel">
+          <div class="myleaderboard w3-panel w3-responsive w3-animate-zoom">
+            <div class="w3-container">
+              <table class="w3-table w3-card-4 w3-auto w3-hoverable w3-white w3-centered" id="tutors">
+                <tr class="w3-blue-grey w3-round-xlarge">
+                  <th style="padding: 8px;">ID Tutor</th>
+                  <th style="padding: 8px;">Nombre</th>
+                  <th style="padding: 8px;">Apellido Paterno</th>
+                  <th style="padding: 8px;">Apellido Materno</th> 
+                  <th style="padding: 8px;">Teléfono</th>
+                  <th style="padding: 8px;">Correo</th>
+                </tr>
+                <tr></tr>
+              </table>
+            </div>
+          </div>
+          <div class="myform w3-half">
+            <div class="adminform myformdiv w3-border w3-round-large">
+              <h2>Actualizar Tutor</h2><br>
+              <div class="w3-center w3-col m6 l6">
+                <input class="w3-input w3-round-xlarge" type="number" placeholder="ID Tutor" id="tutorIdField"required>
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Nombre Tutor" id="tutorNameField" required>
+                <input class="w3-input w3-round-xlarge" type="tel" placeholder="Teléfono" id="tutorPhoneField" required>
+              </div>
+              <div class="w3-center w3-col m6 l6">
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Paternno" id="tutorPField"required>
+                <input class="w3-input w3-round-xlarge" type="text" placeholder="Apellido Materno" id="tutorMField" required>
+                <input class="w3-input w3-round-xlarge" type="email" placeholder="Correo" id="tutorMailField" required>
+              </div>
+              <div class="w3-panel">
+                <button class="w3-btn w3-round-xxlarge w3-section w3-text-white" onclick="updateTutor();">Actualizar</button>
+              </div>              
+            </div>
+          </div>
+          <div class="myform w3-half">
+            <div class="adminform myformdiv w3-border w3-round-xlarge">
+              <h2>Borrar Tutor</h2><br>
+              <div class="w3-center">
+                <input class="w3-input w3-round-xlarge" type="email" placeholder="Email Tutor" id="tutorDelField"required>
+              </div>
+              <div class="w3-panel">
+                <button class="w3-btn w3-round-xxlarge w3-section w3-text-white" onclick="deleteTutor();">Borrar</button>
+              </div>               
+            </div>
+            <div class="myformdiv w3-border">
+              <p style="text-align: center;" id="tutorResult"></p>
+            </div>            
+          </div>          
+        </div>
+        
+      </div>
+      
+      
+      <div class="graphs w3-container w3-row-padding w3-center w3-border">
+        <h1>Gráficas generales</h1>
+        <div class="w3-quarter w3-container">
+          <p>USUARIOS POR PAÍS</p>
+          <canvas class="w3-section w3-border" id="countryChart"></canvas>
+        </div>
+        <div class="w3-quarter w3-container">
+          <p>USUARIOS CON MENOS LOGINS</p>
+          <canvas class="w3-section w3-border" id="lowLoginChart"></canvas>
+        </div> 
+        <div class="w3-quarter w3-container">
+          <p>PUNTUACIÓN PROMEDIO POR NIVEL</p>
+          <canvas class="w3-section w3-border" id="scoreChart"></canvas>
+        </div>
+        <div class="w3-quarter w3-container">
+          <p>EDAD PROMEDIO DE LOS JUGADORES</p>
+          <canvas class="w3-section w3-border" id="ageChart"></canvas>
+        </div>        
+        <div class="w3-half w3-container">
+          <p>PUNTUACIÓN PROMEDIO POR PAÍS</p>
+          <canvas class="w3-section w3-border" id="ctryAvChart"></canvas>
+        </div>
+        <div class="w3-half w3-container">
+          <p>PUNTUACIÓN PROMEDIO POR EDADES</p>
+          <canvas class="w3-section w3-border" id="ageAvChart"></canvas>
+        </div>        
+      </div>
+    
+    </div>
+    
+    <footer class="footer w3-center w3-black w3-padding-24">
+      <p>
+        Desarrollado con 
+        <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-yellow">w3.css</a>
+        <a href="https://nodejs.org/en" title="NodeJS" target="_blank" class="w3-hover-text-yellow">Node.js</a>
+        | 
+        <a href="https://lenguajehtml.com/html/" title="HTML5" target="_blank" class="w3-hover-text-yellow">HTML5</a> válido
+        |
+        Íconos de <a href="https://fontawesome.com" title="Fontawesome" target="_blank" class="w3-hover-text-yellow">Font Awesome</a>
+      </p>
+    </footer>
+    
+    
+    
+  </body>
+  
+</html>
